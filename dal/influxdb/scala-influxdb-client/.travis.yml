@@ -1,0 +1,23 @@
+language: scala
+scala:
+  - 2.12.6
+  - 2.11.12
+  - 2.10.7
+
+jdk:
+  - oraclejdk8
+
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker-compose up --build -d
+  - sbt ++$TRAVIS_SCALA_VERSION -jvm-opts .travis.jvmopts clean coverage test coverageReport
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+after_script:
+  - docker-compose down

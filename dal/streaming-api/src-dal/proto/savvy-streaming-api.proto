@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package IdekoStreamingDal;
+
+// SavvyStreamingAPI service definition
+service SavvyStreamingAPI {
+  // Opens a stream request with the parameters specified and returns a stream response
+  rpc StreamMachine (StreamParameters) returns (stream StreamResponse) {}
+}
+
+// The request parameters
+message StreamParameters {
+  string machineId = 1;
+  string authorization = 2;
+}
+
+// The response message containing the json line
+message StreamResponse {
+  string responseLine = 1;
+}

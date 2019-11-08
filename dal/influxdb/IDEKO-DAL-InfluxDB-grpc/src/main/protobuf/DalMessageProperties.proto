@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "Nuovo.proto";
+
+package com.ditas.ideko;
+
+
+message DalMessageProperties {
+    string purpose = 1;
+    string requesterId = 2;
+    string authorization = 3;
+}
+
+

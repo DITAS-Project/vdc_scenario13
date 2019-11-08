@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.ditas.ideko;
+
+import "DalMessageProperties.proto";
+
+
+// Query InfluxDB and return measurements
+service QueryInfluxDB {
+    rpc query (QueryInfluxDBRequest) returns (QueryInfluxDBReply) {}
+}
+
+
+message QueryInfluxDBRequest {
+    // The query to the InfluxDB
+    string query = 1;
+    // ID of the machine with the relevant measurements
+    string machineId = 2;
+    DalMessageProperties dalMessageProperties = 3;
+}
+
+
+message QueryInfluxDBReply {
+    // InfluxDB Measurements that match a query
+    repeated string measurements = 1;
+}
+

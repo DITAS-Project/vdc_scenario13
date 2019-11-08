@@ -1,0 +1,22 @@
+debugMode: true
+port: 50052
+
+influxdbServer: hostname
+influxdbPort: 8086
+influxdbUsername: username
+influxdbPassword: password
+waitDuration: 2 # seconds
+jwtServerTimeout: 5000 #milliseconds
+jwksServerEndpoint: https://153.92.30.56:58080/auth/realms/288/protocol/openid-connect/certs
+jwksCheckServerCertificate: true
+
+influxdbDBNameMap:
+  CMX_LQLS26:
+  - Zack_CMX_LQLS26
+  - autogen
+  XXC_MBXSLL:
+  - Kelly_XXC_MBXSLL
+  - autogen
+  CMS_LJ3Z4P:
+  - Slater_CMS_LJ3Z4P
+  - autogen
