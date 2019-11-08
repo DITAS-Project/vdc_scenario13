@@ -18,7 +18,17 @@
                 }
             ]
         },
-        "Data_Sources": [],
+        "Data_Sources": [
+            {
+                "QueryInfluxDBRequest.proto": "syntax = \"proto3\";\n\npackage com.ditas.ideko;\n\nimport \"DalMessageProperties.proto\";\n\n\n// Query InfluxDB and return measurements\nservice QueryInfluxDB {\n    rpc query (QueryInfluxDBRequest) returns (QueryInfluxDBReply) {}\n}\n\n\nmessage QueryInfluxDBRequest {\n    // The query to the InfluxDB\n    string query = 1;\n    // ID of the machine with the relevant measurements\n    string machineId = 2;\n    DalMessageProperties dalMessageProperties = 3;\n}\n\n\nmessage QueryInfluxDBReply {\n    // InfluxDB Measurements that match a query\n    repeated string measurements = 1;\n}\n\n"
+            },
+            {
+                "DalMessageProperties.proto": "syntax = \"proto3\";\n\nimport \"Nuovo.proto\";\n\npackage com.ditas.ideko;\n\n\nmessage DalMessageProperties {\n    string purpose = 1;\n    string requesterId = 2;\n    string authorization = 3;\n}\n\n\n"
+            },
+            {
+                "Nuovo.proto": "\n"
+            }
+        ],
         "Methods_Input": {
             "Methods": [
                 {
