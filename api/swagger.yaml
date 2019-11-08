@@ -1,0 +1,124 @@
+openapi: 3.0.1
+info:
+  title: CAF API
+  version: 0.0.2
+paths:
+  '/nutritional-data/{filter}':
+    get:
+      summary: Get patients nutritional data given some filters
+      description: 'This method returns gender, age, BMI, cholesterol of patients that have / do not have a specified pathology'
+      operationId: getNutritionalData
+      parameters:
+        - name: Authorization
+          in: header
+          description: Authorization token
+          required: true
+          schema:
+            type: string
+        - name: filter
+          in: path
+          description: Filter for selecting patients that have / do not have a specified pathology
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Average value for the specified component in the selected age range
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        gender:
+                          type: string
+                        age:
+                          type: integer
+                        bmi:
+                          type: number
+                        cholesterol:
+                          type: number
+                      required:
+                        - gender
+                        - age
+                        - bmi
+                        - cholesterol
+                    minItems: 1
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                        required:
+                          - href
+                    required:
+                      - self
+                required:
+                  - data
+                  - _links
+        '404':
+          description: No patient matching the specified filter
+  '/blood-test/component/{component}/average/{startAgeRange}-{endAgeRange}':
+    get:
+      summary: Get average of component over an age range
+      description: 'This method returns the average value for a specific blood test component in a specific age range, to be used by researchers. Since data are for researchers, patients'' identifiers and quasi-identifiers won''t be returned, making the output of this method anonymized.'
+      operationId: getBloodTestComponentAverage
+      parameters:
+        - name: Authorization
+          in: header
+          description: Authorization token
+          required: true
+          schema:
+            type: string
+        - name: component
+          in: path
+          description: Blood test component for which the last value is requested
+          required: true
+          schema:
+            type: string
+        - name: startAgeRange
+          in: path
+          description: Start age in age range
+          required: true
+          schema:
+            type: number
+        - name: endAgeRange
+          in: path
+          description: End age in age range
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Average value for the specified component in the selected age range
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: number
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                        required:
+                          - href
+                    required:
+                      - self
+                required:
+                  - value
+                  - _links
+        '404':
+          description: Component never measured
