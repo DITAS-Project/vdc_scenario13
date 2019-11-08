@@ -1,0 +1,70 @@
+{
+	"INTERNAL_STRUCTURE": {
+		"Overview": {
+			"name": "",
+			"description": "",
+            "tags": [
+				{
+					"method_id": "",
+					"tags": [""]
+				}
+			]
+		},
+		"Data_Sources": [],
+		"Methods_Input": {
+			"Methods": [
+				{
+					"method_id": "",
+					"data_sources": [{
+				            "dataSource_id": "",
+				            "dataSource_type": "",
+				            "database": [{
+					        "database_id": "",
+					        "tables": [{
+						    "table_id": "",
+						    "columns": [{
+							"column_id": "",
+							"computeDataUtility": true
+						               }]
+					                   }]
+				                         }]
+				                         }]}]}
+		,
+		"Flow": {},
+		"DAL_Images": {
+
+		},
+		"VDC_Images": {
+
+		},
+		"Identity_Access_Management": {
+			"jwks_uri": "",
+			"iam_endpoint": ""
+		},
+		"Testing_Output_Data": [
+			{
+				"method_id": "",
+				"zip_data": ""
+			}
+		]		
+	},	
+	"DATA_MANAGEMENT": [
+		{
+			"method_id": "",
+			"attributes": {
+				"dataUtility": [],
+				"security": [],
+				"privacy": []
+			}
+		}
+	],	
+	"ABSTRACT_PROPERTIES": {
+	
+	},	
+	"COOKBOOK_APPENDIX": {
+		
+	},	
+	"EXPOSED_API": {
+        
+    }
+}
