@@ -1,70 +1,839 @@
 {
-	"INTERNAL_STRUCTURE": {
-		"Overview": {
-			"name": "",
-			"description": "",
+    "INTERNAL_STRUCTURE": {
+        "Overview": {
+            "name": "",
+            "description": "",
             "tags": [
-				{
-					"method_id": "",
-					"tags": [""]
-				}
-			]
-		},
-		"Data_Sources": [],
-		"Methods_Input": {
-			"Methods": [
-				{
-					"method_id": "",
-					"data_sources": [{
-				            "dataSource_id": "",
-				            "dataSource_type": "",
-				            "database": [{
-					        "database_id": "",
-					        "tables": [{
-						    "table_id": "",
-						    "columns": [{
-							"column_id": "",
-							"computeDataUtility": true
-						               }]
-					                   }]
-				                         }]
-				                         }]}]}
-		,
-		"Flow": {},
-		"DAL_Images": {
-
-		},
-		"VDC_Images": {
-
-		},
-		"Identity_Access_Management": {
-			"jwks_uri": "",
-			"iam_endpoint": ""
-		},
-		"Testing_Output_Data": [
-			{
-				"method_id": "",
-				"zip_data": ""
-			}
-		]		
-	},	
-	"DATA_MANAGEMENT": [
-		{
-			"method_id": "",
-			"attributes": {
-				"dataUtility": [],
-				"security": [],
-				"privacy": []
-			}
-		}
-	],	
-	"ABSTRACT_PROPERTIES": {
-	
-	},	
-	"COOKBOOK_APPENDIX": {
-		
-	},	
-	"EXPOSED_API": {
-        
+                {
+                    "method_id": "getNutritionalData",
+                    "tags": [
+                        ""
+                    ]
+                },
+                {
+                    "method_id": "getBloodTestComponentAverage",
+                    "tags": [
+                        ""
+                    ]
+                }
+            ]
+        },
+        "Data_Sources": [],
+        "Methods_Input": {
+            "Methods": [
+                {
+                    "method_id": "getNutritionalData",
+                    "data_sources": [
+                        {
+                            "dataSource_id": "",
+                            "dataSource_type": "",
+                            "database": [
+                                {
+                                    "database_id": "",
+                                    "tables": [
+                                        {
+                                            "table_id": "",
+                                            "columns": [
+                                                {
+                                                    "column_id": "",
+                                                    "computeDataUtility": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "method_id": "getBloodTestComponentAverage",
+                    "data_sources": [
+                        {
+                            "dataSource_id": "",
+                            "dataSource_type": "",
+                            "database": [
+                                {
+                                    "database_id": "",
+                                    "tables": [
+                                        {
+                                            "table_id": "",
+                                            "columns": [
+                                                {
+                                                    "column_id": "",
+                                                    "computeDataUtility": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "Flow": {},
+        "DAL_Images": {},
+        "VDC_Images": {},
+        "Identity_Access_Management": {
+            "jwks_uri": "",
+            "iam_endpoint": ""
+        },
+        "Testing_Output_Data": [
+            {
+                "method_id": "getNutritionalData",
+                "zip_data": ""
+            },
+            {
+                "method_id": "getBloodTestComponentAverage",
+                "zip_data": ""
+            }
+        ]
+    },
+    "DATA_MANAGEMENT": [
+        {
+            "method_id": "getNutritionalData",
+            "attributes": {
+                "dataUtility": [
+                    {
+                        "id": "availability_90",
+                        "description": "Availability 90",
+                        "type": "Availability",
+                        "properties": {
+                            "availability": {
+                                "unit": "percentage",
+                                "minimum": 90
+                            }
+                        }
+                    },
+                    {
+                        "id": "consistency_90",
+                        "description": "Consistency 90",
+                        "type": "Consistency",
+                        "properties": {
+                            "consistency": {
+                                "unit": "percentage",
+                                "minimum": 90
+                            }
+                        }
+                    },
+                    {
+                        "id": "timeliness_65",
+                        "description": "Timeliness 65",
+                        "type": "Timeliness",
+                        "properties": {
+                            "timeliness": {
+                                "maximum": 65,
+                                "unit": "percentage"
+                            }
+                        }
+                    },
+                    {
+                        "id": "throughput_05",
+                        "description": "throughput",
+                        "type": "Throughput",
+                        "properties": {
+                            "throughput": {
+                                "minimum": 0.5,
+                                "unit": "MB/s"
+                            }
+                        }
+                    },
+                    {
+                        "id": "precision_08",
+                        "description": "Precision 0.8",
+                        "type": "Precision",
+                        "properties": {
+                            "precision": {
+                                "maximum": 0.8,
+                                "unit": "none"
+                            }
+                        }
+                    },
+                    {
+                        "id": "accuracy_90",
+                        "description": "Accuracy 90",
+                        "type": "Accuracy",
+                        "properties": {
+                            "accuracy": {
+                                "minimum": 90,
+                                "unit": "percentage"
+                            }
+                        }
+                    },
+                    {
+                        "id": "responseTime_05",
+                        "description": "ResponseTime 0.5",
+                        "type": "ResponseTime",
+                        "properties": {
+                            "responseTime": {
+                                "maximum": 0.5,
+                                "unit": "second"
+                            }
+                        }
+                    },
+                    {
+                        "id": "volume_1200",
+                        "description": "volume 10000",
+                        "type": "Volume",
+                        "properties": {
+                            "volume": {
+                                "value": 10000,
+                                "unit": "tuple"
+                            }
+                        }
+                    },
+                    {
+                        "id": "completeness_8",
+                        "description": "Completeness 8",
+                        "type": "Process completeness",
+                        "properties": {
+                            "completeness": {
+                                "minimum": 80,
+                                "unit": "percentage"
+                            }
+                        }
+                    },
+                    {
+                        "id": "scaleUpMemory",
+                        "description": "scale-up memory",
+                        "type": "Scale-up",
+                        "properties": {
+                            "ramGain": {
+                                "unit": "percentage",
+                                "value": 130
+                            },
+                            "ramLimit": {
+                                "unit": "percentage",
+                                "value": 90
+                            }
+                        }
+                    },
+                    {
+                        "id": "scaleUpSpace",
+                        "description": "scale-up space",
+                        "type": "Scale-up",
+                        "properties": {
+                            "spaceGain": {
+                                "unit": "percentage",
+                                "value": 110
+                            },
+                            "spaceLimit": {
+                                "unit": "percentage",
+                                "value": 95
+                            }
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "id": "encryption_AES128",
+                        "description": "Encryption AES 128",
+                        "type": "TransportEncryption",
+                        "properties": {
+                            "protocol": {
+                                "unit": "enum",
+                                "value": "TLS"
+                            },
+                            "algorithm": {
+                                "unit": "list",
+                                "value": [
+                                    "TLS_AES_256_GCM_SHA384",
+                                    "TLS_AES_128_GCM_SHA256",
+                                    "TLS_AES_128_CCM_8_SHA256",
+                                    "TLS_AES_128_CCM_SHA256"
+                                ]
+                            },
+                            "keyLength": {
+                                "unit": "number",
+                                "value": 128
+                            }
+                        }
+                    },
+                    {
+                        "id": "tracing_1",
+                        "description": "Tracing 1",
+                        "type": "Tracing",
+                        "properties": {
+                            "level": {
+                                "unit": "enum",
+                                "value": "datasource"
+                            },
+                            "sampleRate": {
+                                "unit": "percentage",
+                                "value": 1
+                            },
+                            "instrumentation": {
+                                "unit": "enum",
+                                "value": "VDC"
+                            }
+                        }
+                    },
+                    {
+                        "id": "accessControl_direct",
+                        "description": "Access Control Direct",
+                        "type": "Protocol",
+                        "properties": {
+                            "required": {
+                                "value": "true"
+                            },
+                            "protocol": {
+                                "unit": "enum",
+                                "value": "username/password"
+                            },
+                            "credentials": {
+                                "unit": "list",
+                                "value": [
+                                    "researcher_id"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "privacy": [
+                    {
+                        "id": "purposeControl",
+                        "description": "PurposeControl",
+                        "type": "PurposeControl",
+                        "properties": {
+                            "availablePurpose": {
+                                "unit": "list",
+                                "value": [
+                                    "purposeTag"
+                                ]
+                            },
+                            "allowedGuarantor": {
+                                "unit": "list",
+                                "value": [
+                                    "guarantor_id"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "method_id": "getBloodTestComponentAverage",
+            "attributes": {
+                "dataUtility": [
+                    {
+                        "id": "availability_90",
+                        "description": "Availability 90",
+                        "type": "Availability",
+                        "properties": {
+                            "availability": {
+                                "unit": "percentage",
+                                "minimum": 90
+                            }
+                        }
+                    },
+                    {
+                        "id": "consistency_90",
+                        "description": "Consistency 90",
+                        "type": "Consistency",
+                        "properties": {
+                            "consistency": {
+                                "unit": "percentage",
+                                "minimum": 90
+                            }
+                        }
+                    },
+                    {
+                        "id": "timeliness_65",
+                        "description": "Timeliness 65",
+                        "type": "Timeliness",
+                        "properties": {
+                            "timeliness": {
+                                "maximum": 65,
+                                "unit": "percentage"
+                            }
+                        }
+                    },
+                    {
+                        "id": "throughput_05",
+                        "description": "throughput",
+                        "type": "Throughput",
+                        "properties": {
+                            "throughput": {
+                                "minimum": 0.5,
+                                "unit": "MB/s"
+                            }
+                        }
+                    },
+                    {
+                        "id": "precision_08",
+                        "description": "Precision 0.8",
+                        "type": "Precision",
+                        "properties": {
+                            "precision": {
+                                "maximum": 0.8,
+                                "unit": "none"
+                            }
+                        }
+                    },
+                    {
+                        "id": "accuracy_90",
+                        "description": "Accuracy 90",
+                        "type": "Accuracy",
+                        "properties": {
+                            "accuracy": {
+                                "minimum": 90,
+                                "unit": "percentage"
+                            }
+                        }
+                    },
+                    {
+                        "id": "responseTime_05",
+                        "description": "ResponseTime 0.5",
+                        "type": "ResponseTime",
+                        "properties": {
+                            "responseTime": {
+                                "maximum": 0.5,
+                                "unit": "second"
+                            }
+                        }
+                    },
+                    {
+                        "id": "volume_1200",
+                        "description": "volume 10000",
+                        "type": "Volume",
+                        "properties": {
+                            "volume": {
+                                "value": 10000,
+                                "unit": "tuple"
+                            }
+                        }
+                    },
+                    {
+                        "id": "completeness_8",
+                        "description": "Completeness 8",
+                        "type": "Process completeness",
+                        "properties": {
+                            "completeness": {
+                                "minimum": 80,
+                                "unit": "percentage"
+                            }
+                        }
+                    },
+                    {
+                        "id": "scaleUpMemory",
+                        "description": "scale-up memory",
+                        "type": "Scale-up",
+                        "properties": {
+                            "ramGain": {
+                                "unit": "percentage",
+                                "value": 130
+                            },
+                            "ramLimit": {
+                                "unit": "percentage",
+                                "value": 90
+                            }
+                        }
+                    },
+                    {
+                        "id": "scaleUpSpace",
+                        "description": "scale-up space",
+                        "type": "Scale-up",
+                        "properties": {
+                            "spaceGain": {
+                                "unit": "percentage",
+                                "value": 110
+                            },
+                            "spaceLimit": {
+                                "unit": "percentage",
+                                "value": 95
+                            }
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "id": "encryption_AES128",
+                        "description": "Encryption AES 128",
+                        "type": "TransportEncryption",
+                        "properties": {
+                            "protocol": {
+                                "unit": "enum",
+                                "value": "TLS"
+                            },
+                            "algorithm": {
+                                "unit": "list",
+                                "value": [
+                                    "TLS_AES_256_GCM_SHA384",
+                                    "TLS_AES_128_GCM_SHA256",
+                                    "TLS_AES_128_CCM_8_SHA256",
+                                    "TLS_AES_128_CCM_SHA256"
+                                ]
+                            },
+                            "keyLength": {
+                                "unit": "number",
+                                "value": 128
+                            }
+                        }
+                    },
+                    {
+                        "id": "tracing_1",
+                        "description": "Tracing 1",
+                        "type": "Tracing",
+                        "properties": {
+                            "level": {
+                                "unit": "enum",
+                                "value": "datasource"
+                            },
+                            "sampleRate": {
+                                "unit": "percentage",
+                                "value": 1
+                            },
+                            "instrumentation": {
+                                "unit": "enum",
+                                "value": "VDC"
+                            }
+                        }
+                    },
+                    {
+                        "id": "accessControl_direct",
+                        "description": "Access Control Direct",
+                        "type": "Protocol",
+                        "properties": {
+                            "required": {
+                                "value": "true"
+                            },
+                            "protocol": {
+                                "unit": "enum",
+                                "value": "username/password"
+                            },
+                            "credentials": {
+                                "unit": "list",
+                                "value": [
+                                    "researcher_id"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "privacy": [
+                    {
+                        "id": "purposeControl",
+                        "description": "PurposeControl",
+                        "type": "PurposeControl",
+                        "properties": {
+                            "availablePurpose": {
+                                "unit": "list",
+                                "value": [
+                                    "purposeTag"
+                                ]
+                            },
+                            "allowedGuarantor": {
+                                "unit": "list",
+                                "value": [
+                                    "guarantor_id"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "ABSTRACT_PROPERTIES": {},
+    "COOKBOOK_APPENDIX": {
+        "Resources": {
+            "name": "resource-name",
+            "description": "Resource description",
+            "infrastructures": [
+                {
+                    "name": "cloudsigma-infrastructure",
+                    "type": "cloud",
+                    "provider": {
+                        "api_endpoint": "https://fra.cloudsigma.com/api/2.0",
+                        "api_type": "Cloudsigma",
+                        "credentials": {
+                            "username": "apps@ideko.es",
+                            "password": "ASK-FOR-IT"
+                        },
+                        "secret_id": ""
+                    },
+                    "extra_properties": {
+                        "owner": "DataAdministrator"
+                    },
+                    "resources": [
+                        {
+                            "name": "resource1",
+                            "cpu": 4000,
+                            "ram": 4000,
+                            "disk": 40000,
+                            "drives": [
+                                {
+                                    "name": "resource1-d1",
+                                    "size": 10000,
+                                    "type": "SSD"
+                                }
+                            ],
+                            "image_id": "image_id",
+                            "role": "master",
+                            "extra_properties": {
+                                "cloudsigma_boot_drive_type": "custom"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "kubernetes-infrastructure",
+                    "type": "edge",
+                    "provider": {
+                        "api_endpoint": "endpoint",
+                        "api_type": "kubernetes",
+                        "credentials": {
+                            "config": {
+                                "apiVersion": "v1",
+                                "clusters": [
+                                    {
+                                        "cluster": {
+                                            "certificate-authority-data": "ca-data",
+                                            "server": "https://ip_removed:36443"
+                                        },
+                                        "name": "kubernetes"
+                                    }
+                                ],
+                                "contexts": [
+                                    {
+                                        "context": {
+                                            "cluster": "kubernetes",
+                                            "user": "kubernetes-admin"
+                                        },
+                                        "name": "kubernetes-admin@kubernetes"
+                                    }
+                                ],
+                                "current-context": "kubernetes-admin@kubernetes",
+                                "kind": "Config",
+                                "preferences": {},
+                                "users": [
+                                    {
+                                        "name": "kubernetes-admin",
+                                        "user": {
+                                            "client-certificate-data": "cert-data",
+                                            "client-key-data": "key-data"
+                                        }
+                                    }
+                                ]
+                            },
+                            "registries_secret": "secret"
+                        }
+                    },
+                    "extra_properties": {
+                        "owner": "ApplicationDeveloper"
+                    },
+                    "resources": [
+                        {
+                            "name": "resource2",
+                            "cpu": 1830,
+                            "ram": 8000,
+                            "disk": 480000,
+                            "drives": [
+                                {
+                                    "name": "resource2-d1",
+                                    "size": 10000,
+                                    "type": "SSD"
+                                }
+                            ],
+                            "role": "master"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "EXPOSED_API": {
+        "openapi": "3.0.1",
+        "info": {
+            "title": "CAF API",
+            "version": "0.0.2"
+        },
+        "paths": {
+            "/nutritional-data/{filter}": {
+                "get": {
+                    "summary": "Get patients nutritional data given some filters",
+                    "description": "This method returns gender, age, BMI, cholesterol of patients that have / do not have a specified pathology",
+                    "operationId": "getNutritionalData",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "in": "header",
+                            "description": "Authorization token",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "filter",
+                            "in": "path",
+                            "description": "Filter for selecting patients that have / do not have a specified pathology",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Average value for the specified component in the selected age range",
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "type": "object",
+                                        "properties": {
+                                            "data": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "gender": {
+                                                            "type": "string"
+                                                        },
+                                                        "age": {
+                                                            "type": "integer"
+                                                        },
+                                                        "bmi": {
+                                                            "type": "number"
+                                                        },
+                                                        "cholesterol": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "gender",
+                                                        "age",
+                                                        "bmi",
+                                                        "cholesterol"
+                                                    ]
+                                                },
+                                                "minItems": 1
+                                            },
+                                            "_links": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "self": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "href": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "href"
+                                                        ]
+                                                    }
+                                                },
+                                                "required": [
+                                                    "self"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "data",
+                                            "_links"
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "No patient matching the specified filter"
+                        }
+                    }
+                }
+            },
+            "/blood-test/component/{component}/average/{startAgeRange}-{endAgeRange}": {
+                "get": {
+                    "summary": "Get average of component over an age range",
+                    "description": "This method returns the average value for a specific blood test component in a specific age range, to be used by researchers. Since data are for researchers, patients' identifiers and quasi-identifiers won't be returned, making the output of this method anonymized.",
+                    "operationId": "getBloodTestComponentAverage",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "in": "header",
+                            "description": "Authorization token",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "component",
+                            "in": "path",
+                            "description": "Blood test component for which the last value is requested",
+                            "required": true,
+                            "schema": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "startAgeRange",
+                            "in": "path",
+                            "description": "Start age in age range",
+                            "required": true,
+                            "schema": {
+                                "type": "number"
+                            }
+                        },
+                        {
+                            "name": "endAgeRange",
+                            "in": "path",
+                            "description": "End age in age range",
+                            "required": true,
+                            "schema": {
+                                "type": "number"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Average value for the specified component in the selected age range",
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "type": "object",
+                                        "properties": {
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "_links": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "self": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "href": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "href"
+                                                        ]
+                                                    }
+                                                },
+                                                "required": [
+                                                    "self"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "value",
+                                            "_links"
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "404": {
+                            "description": "Component never measured"
+                        }
+                    }
+                }
+            }
+        }
     }
 }
